@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'person_list' %}">People</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <h4>Person</h4>
+    <ul>
+        <li>Name: {{ person.name }}</li>
+        <li>Age: {{ person.age }}</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'person_list' %}">People</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <a href="{% url 'person_new' %}">Add Person</a>
+    <h4>People</h4>
+    {% for person in people %}
+        <ul>
+            <li>Name: {{ person.first_name }} {{ person.last_name }}</li>
+            <li>Age: {{ person.age }}</li>
+            <li>
+                <a href="{% url 'person_update' person.id %}">Update</a>
+                <a href="{% url 'person_delete' person.id %}">Delete</a>
+            </li>
+        </ul>
+    {% endfor %}
+</body>
+</html>
