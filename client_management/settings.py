@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'django-client-management.herokuapp.com/',
+    'django-client-management.herokuapp.com'
 ]
 
 
