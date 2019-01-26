@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Person {% endblock %}
+
+{% block section %}
+    <h4>People</h4>
+    <ul class="list-group">
+        {% for product in products %}
+            <li class="list-group-item">
+            <div>
+                <div id="person-left">
+                ID: {{ product.id }} - Description: {{ product.description }}
+                <br>
+                    U&#36; {{ product.price }}
+                </div>
+                <div id="person-right">
+                    <a class="" href="{% url 'product_update' product.id %}"><i class="material-icons">update</i></a>
+                    <a class="text-white" href="{% url 'product_delete' product.id %}"><i class="material-icons" style="color: black">delete</i></a>
+                </div>
+            </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a class="text-white" href="{% url 'product_new' %}"><button type="button" class="btn btn-primary" >Add Product</button></a>
+{% endblock %}

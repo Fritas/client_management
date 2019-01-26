@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block section %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Confirm delete of {{ product.descriptio  }}!</h2>
+        <button type="submit" class="btn btn-danger">Confirm</button>
+    </form>
+{% endblock %}

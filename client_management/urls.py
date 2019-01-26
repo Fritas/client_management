@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 # App Urls
-from clients import urls as client_urls
+from trade import urls as client_urls
 from home import urls as home_urls
 
 # files static
@@ -31,6 +31,6 @@ urlpatterns = [
 
     # include
     path('', include(home_urls)),
-    path('client/', include(client_urls)),
+    path('trade/', include(client_urls)),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
