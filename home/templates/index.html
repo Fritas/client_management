@@ -1,24 +1,10 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Django Application</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'person_list' %}">People</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+
+{% block title %}Welcome{% endblock %}
+
+{% block section %}
     <h1 class="home">Hello {{ user }}, I'm a <a href='https://www.djangoproject.com/' target='blank'>django</a> application!"</h1>
     <img src="{% static 'django.jpg' %}" width="100%">
-</body>
-</html>
+{% endblock %}
+

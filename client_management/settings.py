@@ -30,7 +30,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'django-client-management.herokuapp.com'
+    'django-client-management.herokuapp.com',
+    'localhost',
+    '127.0.0.1',
 ]
 
 
@@ -43,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'bootstrapform',
+
     'clients',
     'home',
 ]
@@ -124,6 +129,9 @@ USE_TZ = True
 # Static Files
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    'static',
+]
 
 # Media
 MEDIA_URL = '/media/'

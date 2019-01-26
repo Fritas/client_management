@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Person</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'person_list' %}">People</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-        </ul>
-    </nav>
-    <a href="{% url 'person_new' %}">Add Person</a>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Person {% endblock %}
+
+{% block section %}
     <h4>People</h4>
-    {% for person in people %}
-        <ul>
-            <li>Name: {{ person.first_name }} {{ person.last_name }}</li>
-            <li>Age: {{ person.age }}</li>
-            <li>
-                <a href="{% url 'person_update' person.id %}">Update</a>
-                <a href="{% url 'person_delete' person.id %}">Delete</a>
+    <ul class="list-group">
+        {% for person in people %}
+            <li class="list-group-item">
+            <div>
+                <div id="person-left">
+                Name: {{ person.first_name }} {{ person.last_name }}
+                <br>
+                    Age: {{ person.age }}
+                <br>
+                </div>
+                <div id="person-right">
+                    <a class="" href="{% url 'person_update' person.id %}"><i class="material-icons">update</i></a>
+                    <a class="text-white" href="{% url 'person_delete' person.id %}"><i class="material-icons" style="color: black">delete</i></a>
+                </div>
+            </div>
             </li>
-        </ul>
-    {% endfor %}
-</body>
-</html>
+        {% endfor %}
+    </ul>
+    <br>
+    <a class="text-white" href="{% url 'person_new' %}"><button type="button" class="btn btn-primary" >Add Person</button></a>
+{% endblock %}

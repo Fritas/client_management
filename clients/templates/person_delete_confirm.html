@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block section %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h2>Confirm delete of {{ person.first_name }} {{ person.last_name }}!</h2>
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-danger">Confirm</button>
     </form>
-</body>
-</html>
+{% endblock %}

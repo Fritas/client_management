@@ -18,7 +18,7 @@ def person_new(request):
     if form.is_valid():
         form.save()
         return redirect('person_list')
-    return render(request, 'personform.html', {'form': form})
+    return render(request, 'person_form.html', {'form': form})
 
 
 @login_required
@@ -28,7 +28,7 @@ def person_update(request, id):
     if form.is_valid():
         form.save()
         return redirect('person_list')
-    return render(request, 'personform.html', {'form': form})
+    return render(request, 'person_form.html', {'form': form})
 
 
 @login_required
