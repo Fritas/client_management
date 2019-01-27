@@ -25,4 +25,3 @@ class SaleForm(forms.ModelForm):
         model = Sale
         fields = ['number', 'value', 'descont', 'tax', 'person', 'products']
 
-

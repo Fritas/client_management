@@ -56,6 +56,7 @@ def person_delete(request, id):
 @login_required
 def product_list(request):
     products = Product.objects.all()
+
     return render(request, 'product_list.html', {'products' : products})
 
 @login_required
