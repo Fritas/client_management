@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Person, Product, Sale
-from .forms import PersonForm, ProductForm, SaleForm, SearchProductForm
-from decimal import Decimal
+from .forms import PersonForm, ProductForm, SaleForm
 
 # Create your views here.
 # Person CRUD
@@ -56,7 +55,6 @@ def person_delete(request, id):
 @login_required
 def product_list(request):
     products = Product.objects.all()
-
     return render(request, 'product_list.html', {'products' : products})
 
 @login_required
