@@ -1,13 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Person, Product, Sale
-from .forms import PersonForm, DocumentForm, ProductForm, SaleForm
+from .forms import PersonForm, ProductForm, SaleForm, SearchProductForm
+from decimal import Decimal
 
 # Create your views here.
 # Person CRUD
 @login_required
 def person_list(request):
+    search_first_name = request.GET.get('search_first_name', None)
+    search_last_name = request.GET.get('search_last_name', None)
     people = Person.objects.all()
+    if search_first_name and search_last_name:
+        people = people.filter(
+            first_name__iexact=search_first_name,
+            last_name__iexact=search_last_name
+        )
+    elif search_last_name or search_first_name:
+        people = people.filter(first_name__iexact=search_first_name) \
+                 | people.filter(last_name__contains=search_last_name)
+
+
     return render(request, 'person_list.html', {'people': people})
 
 @login_required

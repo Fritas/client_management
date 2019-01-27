@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Person {% endblock %}
+{% block title %}Person{% endblock %}
 
 {% block section %}
+    <div class="row">
+        <div class="col-md-1 col-lg-3"></div>
+        <div class="col-md-10 col-lg-6">
+            <form class="form-inline my-2 my-md-8 my-lg-6">
+                <input class="form-control mr-md-6" type="search" placeholder="First name" aria-label="Search" name="search_first_name">
+                <input class="form-control mr-md-6" type="search" placeholder="Last name" aria-label="Search" name="search_last_name">
+                <button class="btn btn-outline-success my-2 mr-md-2" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+    </div>
     <h4>People</h4>
+
     <ul class="list-group">
         {% for person in people %}
             <li class="list-group-item">

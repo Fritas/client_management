@@ -22,6 +22,7 @@ class Person(models.Model):
     def __str__(self):
         return "%d - %s %s" %(self.id, self.first_name, self.last_name)
 
+
 class Product(models.Model):
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -29,6 +30,7 @@ class Product(models.Model):
 
     def __str__(self):
         return "%d - %s, $ %.2f" %(self.id, self.description, self.price)
+
 
 class Sale(models.Model):
     number = models.CharField(max_length=7)

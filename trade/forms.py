@@ -1,26 +1,28 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Person, Document, Product, Sale
 
-class PersonForm(ModelForm):
+class PersonForm(forms.ModelForm):
 
     class Meta:
         model = Person
         fields = ['first_name', 'last_name', 'age', 'salary', 'bio', 'photo']
 
-class DocumentForm(ModelForm):
+class DocumentForm(forms.ModelForm):
 
     class Meta:
         model = Document
         fields = ['num_doc']
 
-class ProductForm(ModelForm):
+class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
         fields = ['description', 'price']
 
-class SaleForm(ModelForm):
+class SaleForm(forms.ModelForm):
 
     class Meta:
         model = Sale
         fields = ['number', 'value', 'descont', 'tax', 'person', 'products']
+
+

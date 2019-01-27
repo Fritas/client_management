@@ -1,5 +1,9 @@
 /* Sticky footer styles
 -------------------------------------------------- */
+*{
+  box-sizing: border-box;
+vertical-align: baseline;
+}
 html {
   position: relative;
   min-height: 100%;
